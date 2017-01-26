@@ -4,7 +4,7 @@ describe Grid do
   subject (:grid) { described_class.new }
   let (:slots) { double Array.new(9) }
 
-  scenario 'grid slot usage' do
+  context 'grid slot usage' do
     it 'has 9 slots in which a player can select' do
       expect(grid.slots.length).to eq 9
     end
@@ -14,8 +14,6 @@ describe Grid do
       expect { grid.add_x(0) }.to raise error "this slot is taken!"
     end
   end
-
-  scenario "knows the grid rows of 3" do
 
     context "horizontal rows" do
       it 'defines grid slots 0,1,2 as a row' do
@@ -49,7 +47,5 @@ describe Grid do
       end
 
     end
-
-  end
 
 end
