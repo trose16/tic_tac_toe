@@ -32,7 +32,7 @@ describe Game do
 
 
   it "knows when a player has won" do
-
+    game.check_for_win
   end
 
 
