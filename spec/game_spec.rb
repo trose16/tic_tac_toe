@@ -4,7 +4,7 @@ describe Game do
   subject (:game) { described_class.new(player_1, player_2, grid) }
   let(:player_1) { double :player_2 }
   let(:player_2) { double :player_2 }
-  let(:grid) { double :grid }
+  let(:grid) { double Array.new(9) }
 
   it "is initialized with two players" do
     expect(game.player_1).to eq player_1
@@ -16,8 +16,8 @@ describe Game do
   end
 
   it 'allows players to choose a grid slot to play' do
-    game.play_slot[0].x
-    expect(game.grid[0]).to eq :x
+    game.play_x(0)
+    expect(game.grid.slots[0]).to eq :X
   end
 
   it "alternates between the two players" do

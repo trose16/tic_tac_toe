@@ -1,3 +1,5 @@
+require_relative "grid.rb"
+
 class Game
 
   attr_reader :player_1, :player_2
@@ -9,7 +11,13 @@ class Game
     @grid = grid
   end
 
+  def play_x(position)
+    grid.add_x(position)
+  end
 
+  def play_o(position)
+    grid.add_o(position)
+  end
 
 
 end
