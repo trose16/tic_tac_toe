@@ -7,12 +7,12 @@ class Grid
   end
 
 
-  def add_x(grid_slot, choice=nil)
+  def add_x(grid_slot)
     choice = "x".upcase.to_sym
     slots.insert(grid_slot, choice)
   end
 
-  def add_o(grid_slot, choice=nil)
+  def add_o(grid_slot)
     choice = "o".upcase.to_sym
     slots.insert(grid_slot, choice)
   end

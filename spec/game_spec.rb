@@ -4,7 +4,7 @@ describe Game do
   subject (:game) { described_class.new(player_1, player_2, grid) }
   let(:player_1) { double :player_2 }
   let(:player_2) { double :player_2 }
-  let(:grid) { double Array.new(9) }
+  let(:grid) { double Grid.new }
 
   it "is initialized with two players" do
     expect(game.player_1).to eq player_1
@@ -17,10 +17,14 @@ describe Game do
 
   it 'allows players to choose a grid slot to play' do
     game.play_x(0)
-    expect(game.grid.slots[0]).to eq :X
+    expect(game.grid[0]).to eq :X
   end
 
-  it "alternates between the two players" do
+  it "doesn't allow x or o to be played twice in a row" do
+    game.play_x(0)
+    game.play_x(1)
+    expect { game.turn_patrol }.to raise error "It's not your turn!"
+    expect
 
   end
 
