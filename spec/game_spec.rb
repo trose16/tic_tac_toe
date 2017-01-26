@@ -15,5 +15,14 @@ describe Game do
     expect(game.grid).to eq grid
   end
 
+  it 'allows players to choose a grid slot to play' do
+    game.play_slot[0].x
+    expect(game.grid[0]).to eq :x
+  end
+
+  it "alternates between the two players" do
+
+  end
+
 
 end

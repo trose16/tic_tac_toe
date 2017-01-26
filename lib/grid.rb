@@ -1,10 +1,12 @@
 class Grid
 
-  attr_accessor :grid
+  attr_accessor :slots
 
   def initialize
-    @grid = [nil, nil, nil, nil, nil, nil, nil, nil, nil]
+    @slots = [nil, nil, nil, nil, nil, nil, nil, nil, nil]
   end
+
+
 
 
 # transfer things to symbols
