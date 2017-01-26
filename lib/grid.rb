@@ -3,6 +3,7 @@ require_relative "judge.rb"
 class Grid
 
   attr_accessor :slots
+  attr_reader :judge
 
   def initialize
     @slots = Array.new(9)
@@ -62,9 +63,7 @@ class Grid
   end
 
   def check_for_win_x
-    if horizontal_row_1 || horizontal_row_1 || horizontal_row_3 || vertical_row_1 || vertical_row_2 || vertical_row_3 || diagonal_row_1 || diagonal_row_2 == :X
-      puts "X Wins!"
-    end
+    judge.win_x?
   end
 
   def check_for_win_o

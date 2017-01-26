@@ -6,10 +6,11 @@ class Game
   attr_reader :player_1, :player_2, :judge
   attr_accessor :grid, :take_turns
 
-  def initialize(p1, p2, grid, judge)
+  def initialize(p1, p2, judge)
     @player_1 = p1
     @player_2 = p2
     @grid = grid
+    @judge = judge
     @take_turns = []
   end
 

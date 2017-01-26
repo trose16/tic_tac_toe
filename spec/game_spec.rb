@@ -1,10 +1,11 @@
 require 'game'
 
 describe Game do
-  subject (:game) { described_class.new(player_1, player_2, grid) }
+  subject (:game) { Game.new(player_1, player_2, judge) }
   let(:player_1) { double :player_2 }
   let(:player_2) { double :player_2 }
-  let(:grid) { double 'grid' }
+  let(:grid) { double Grid.new }
+  let(:judge) { double Judge.new(grid) }
 
   # { double (:add_x= => nil, :add_o= => nil)  }
 
@@ -14,7 +15,7 @@ describe Game do
   end
 
   it "is initialized with a grid to play" do
-    expect(game.grid).to eq grid
+    expect(game.judge.grid).to eq grid
   end
 
   it 'allows players to choose a grid slot to play' do
@@ -31,8 +32,8 @@ describe Game do
 
 
 
-  it "knows when a player has won" do
-    game.check_for_win
+  it "knows when player X has won" do
+    game.check_for_win_x
   end
 
 
