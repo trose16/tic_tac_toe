@@ -3,12 +3,13 @@ require_relative "grid.rb"
 class Game
 
   attr_reader :player_1, :player_2
-  attr_accessor :grid
+  attr_accessor :grid, :take_turns
 
   def initialize(player_1, player_2, grid)
     @player_1 = player_1
     @player_2 = player_2
     @grid = grid
+    @take_turns = []
   end
 
 
@@ -23,8 +24,14 @@ class Game
   end
 
   def turn_patrol(choice)
-    puts "Play O" if choice == :X
-    puts "Play X" if choice == :O
+    take_turns << choice
+    if take_turns.length == 2 && take_turns[0] != take_turns[1]
+        take_turns = []
+    end
+  end
+
+  def turn_error
+    raise "It's not your turn!"
   end
 
 

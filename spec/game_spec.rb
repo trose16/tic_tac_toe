@@ -4,7 +4,9 @@ describe Game do
   subject (:game) { described_class.new(player_1, player_2, grid) }
   let(:player_1) { double :player_2 }
   let(:player_2) { double :player_2 }
-  let(:grid) { double Grid.new }
+  let(:grid) { double 'grid' }
+
+  # { double (:add_x= => nil, :add_o= => nil)  }
 
   it "is initialized with two players" do
     expect(game.player_1).to eq player_1
@@ -23,8 +25,13 @@ describe Game do
   it "doesn't allow x or o to be played twice in a row" do
     game.play_x(0)
     game.play_x(1)
-    expect { game.turn_patrol }.to raise error "It's not your turn!"
+    expect { game.turn_error }.to raise error "It's not your turn!"
     expect
+  end
+
+
+
+  it "knows when a player has won" do
 
   end
 
