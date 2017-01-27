@@ -14,14 +14,12 @@ class Grid
     choice = "x".upcase.to_sym
     grid_patrol(grid_slot)
     slots.insert(grid_slot, choice)
-    check_for_win_x
   end
 
   def add_o(grid_slot)
     choice = "o".upcase.to_sym
     grid_patrol(grid_slot)
     slots.insert(grid_slot, choice)
-    check_for_win_o
   end
 
   def grid_patrol(grid_slot)
@@ -62,22 +60,4 @@ class Grid
     slots[0] && slots[4] && slots[8]
   end
 
-  def check_for_win_x
-    judge.win_x?
-  end
-
-  def check_for_win_o
-    if horizontal_row_1 || horizontal_row_1 || horizontal_row_3 || vertical_row_1 || vertical_row_2 || vertical_row_3 || diagonal_row_1 || diagonal_row_2 == :O
-      puts "O Wins!"
-      grid_reset
-    end
-  end
-
-  def grid_reset
-    puts "GAME OVER"
-    slots = Array.new(9)
-  end
-
-
-  # transfer things to symbols
 end
